@@ -1,0 +1,277 @@
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #1a1a1a; 
+    font-family: 'Arial', sans-serif;
+}
+
+/* Applying square 3D outline effect */
+.square-outline {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: #2c3e50; 
+    border: 4px solid #f39c12; 
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 0 4px 20px rgba(0, 0, 0, 0.5); 
+    border-radius: 10px; 
+    transition: all 0.3s ease-in-out; 
+}
+
+/* Adding a hover effect to enhance the 3D look */
+.square-outline:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Calendar Container */
+.calendar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%; 
+    max-width: 450px; 
+    height: 80vh; 
+    background: linear-gradient(145deg, #2c3e50, #34495e); 
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); 
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+/* Header Styling */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-month, .calendar-year {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ecf0f1;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* Calendar Grid for Dates */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    color: #ffdd40;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.calendar-grid div {
+    padding: 15px;
+    background-color: #2c3e50;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.calendar-grid div:hover {
+    transform: scale(1.1);
+}
+
+/* Highlight Current Date */
+.calendar-grid .current-day {
+    background-color: #051538;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(14, 13, 13, 0.5);
+    transform: scale(1.1);
+}
+
+/* Footer Text */
+.calendar-footer {
+    text-align: center;
+    font-size: 18px;
+    color: #ecf0f1;
+}
+
+.footer-text {
+    color: #ecf0f1;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Time and Year Container */
+.time-date-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.current-time, .current-year {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ecf0f1;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* Navigation Buttons */
+.nav-btn {
+    background-color: #ffdd40;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #070808b3;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px 5px;
+}
+
+.nav-btn:hover {
+    background-color: #f39d1281;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Running Text */
+.running-text {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    text-align: center;
+    color: #ffdd40;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(9, 8, 9, 0.7);
+}
+
+.running-text marquee {
+    font-size: 16px;
+    color: #ecf0f1;
+}
+
+/* 3D Flip Effect for the Calendar */
+@keyframes flipIn {
+    0% {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes flipOut {
+    0% {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+}
+
+/* Flip Calendar */
+.flip-in {
+    animation: flipIn 0.6s forwards;
+}
+
+.flip-out {
+    animation: flipOut 0.6s forwards;
+}
+
+/* Responsive Styling */
+@media (max-width: 600px) {
+    .calendar {
+        width: 95%;
+        height: 70vh;
+        padding: 15px;
+    }
+
+    .calendar-header {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .calendar-month, .calendar-year {
+        font-size: 20px;
+    }
+
+    .calendar-grid {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 8px;
+    }
+
+    .calendar-grid div {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .time-date-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .current-time, .current-year {
+        font-size: 14px;
+    }
+
+    .running-text marquee {
+        font-size: 14px;
+    }
+
+    .nav-btn {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar {
+        width: 95%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .calendar-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .calendar-month, .calendar-year {
+        font-size: 18px;
+    }
+
+    .calendar-grid div {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .time-date-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 5px;
+    }
+
+    .current-time, .current-year {
+        font-size: 12px;
+    }
+
+    .running-text marquee {
+        font-size: 12px;
+    }
+
+    .nav-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
